@@ -1,17 +1,17 @@
 package pages;
 
-import driver.DriverSingletone;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.interactions.Actions;
+
 import static driver.DriverSingletone.getDriver;
 
 
 public class LinoleumPage extends BasePage {
-    public LinoleumPage(WebDriver driver) {
-        super(driver);
+    public LinoleumPage() {
+        super();
     }
 
     By promoCodeTearDown = By.xpath("//div[@class='popmechanic-close']");
@@ -34,12 +34,12 @@ public class LinoleumPage extends BasePage {
         click(emptyClick);
         click(thirtyTwo);
 
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
         jse.executeScript("scroll(0, 500);");
         click(addToCart);
 
         click(plusOneButton);
-        Actions action = new Actions(driver);
+        Actions action = new Actions(getDriver());
         action.sendKeys(Keys.ESCAPE).build().perform();
         click(plusOneButton);
         action.sendKeys(Keys.ESCAPE).build().perform();
@@ -52,7 +52,7 @@ public class LinoleumPage extends BasePage {
     }
 
     public CartPage goToCartPage() {
-        return new CartPage(getDriver());
+        return new CartPage();
     }
 }
 

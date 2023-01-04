@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class CartAddStepsDefinition extends AbstractStepDefinitionClass{
 
@@ -18,6 +19,6 @@ public class CartAddStepsDefinition extends AbstractStepDefinitionClass{
     }
     @Then("product is added to cart")
     public void product_is_added_to_cart() {
-        cartPage.assertCartPageWorks("Вход или регистрация");
+        Assert.assertEquals(cartPage.assertCartPageWorks(),"Вход или регистрация");
     }
 }
